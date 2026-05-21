@@ -373,6 +373,10 @@ export default function ScholarForgeApp() {
       setAnswers(prev => ({ ...prev, [qId]: updated }));
     } else {
       setAnswers(prev => ({ ...prev, [qId]: value }));
+      // Auto-advance for single-select after a short delay so user sees the highlight
+      setTimeout(() => {
+        next();
+      }, 450);
     }
   }
 
@@ -733,6 +737,42 @@ Generate a JSON response ONLY (no markdown, no backticks) with this exact struct
               fontSize: "clamp(16px, 4vw, 20px)", color: COLORS.white,
               fontFamily: "'Playfair Display', serif", fontWeight: 700, lineHeight: 1.3
             }}>{result.headline}</h2>
+          </div>
+
+          {/* === EARLY CTA - RIGHT AFTER SCORE === */}
+          <div style={{ marginBottom: 28, textAlign: "center" }}>
+            <p style={{
+              fontSize: 15,
+              color: COLORS.white,
+              lineHeight: 1.5,
+              marginBottom: 16
+            }}>
+              Your Scholarship Readiness Score™ shows real potential.<br />
+              Now get the complete intelligence system that turns this score into actual fully-funded offers.
+            </p>
+
+            <a
+              href="https://selar.com/scholarshipblueprint"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                padding: "16px 32px",
+                borderRadius: 16,
+                fontSize: 16,
+                fontWeight: 700,
+                background: `linear-gradient(135deg, ${COLORS.gold}, ${COLORS.goldDim})`,
+                color: COLORS.navy,
+                textDecoration: "none",
+                boxShadow: `0 8px 32px ${COLORS.gold}44`,
+              }}
+            >
+              Get The Global Scholar System™ Blueprint Now →
+            </a>
+
+            <p style={{ fontSize: 13, color: "#2A3A6A", marginTop: 12 }}>
+              ₦5,000 • Instant access • Risk-free for serious applicants
+            </p>
           </div>
 
           {/* Category breakdown */}
